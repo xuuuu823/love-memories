@@ -1,0 +1,236 @@
+.special-days-header {
+    text-align: center;
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.special-days-header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.sparkle {
+    font-size: 2rem;
+    animation: sparkle 2s infinite;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.timeline-content {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 45%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 50%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 50%;
+}
+
+.timeline-date {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-emoji {
+    font-size: 1.5rem;
+}
+
+.timeline-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+.timeline-content::before {
+    content: '💕';
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-size: 4rem;
+    opacity: 0.1;
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    content: '💝';
+    left: -10px;
+    right: auto;
+    transform: rotate(15deg);
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.continuing-story .timeline-content {
+    background: linear-gradient(to right, #fff5f8, #fff);
+    border: 2px dashed var(--primary-color);
+}
+
+.continuing-story .timeline-title h3 {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.continuing-dots {
+    display: inline-block;
+    animation: typing 1.5s infinite;
+}
+
+@keyframes typing {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* 让最后一个元素居中显示 */
+.continuing-story {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.continuing-story .timeline-content {
+    margin: 0 auto !important;
+    width: 60% !important;
+}
+
+/* 装饰元素样式 */
+.decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star-fall {
+    position: fixed;
+    font-size: 1.5rem;
+    animation: fall 10s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* 设置不同的起始位置和延迟 */
+.star-fall:nth-child(1) { left: 10%; animation-delay: 0s; }
+.star-fall:nth-child(2) { left: 20%; animation-delay: 2s; }
+.star-fall:nth-child(3) { left: 30%; animation-delay: 4s; }
+.star-fall:nth-child(4) { left: 40%; animation-delay: 1s; }
+.star-fall:nth-child(5) { left: 50%; animation-delay: 3s; }
+.star-fall:nth-child(6) { left: 60%; animation-delay: 5s; }
+.star-fall:nth-child(7) { left: 70%; animation-delay: 0.5s; }
+.star-fall:nth-child(8) { left: 80%; animation-delay: 2.5s; }
+.star-fall:nth-child(9) { left: 90%; animation-delay: 4.5s; }
+
+.timeline-wish {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(var(--primary-color-rgb), 0.3);
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.wish-text {
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.timeline-content:hover .wish-text {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 特殊日子页面的样式 */
+
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-control button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.music-control button:hover {
+    transform: scale(1.1);
+}
+
+.music-control button.playing {
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+} 

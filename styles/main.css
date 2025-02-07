@@ -1,0 +1,516 @@
+:root {
+    --primary-color: #ff9ecd;
+    --secondary-color: #a5d8ff;
+    --text-color: #333;
+    --background-color: #fff5f8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: var(--background-color);
+    background-image: linear-gradient(45deg, #fff5f8 0%, #f0f8ff 100%);
+    min-height: 100vh;
+}
+
+.main-nav {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.nav-item {
+    padding: 0.8rem 1rem;
+    border-radius: 20px;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+main {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.welcome-section h1 {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.calendar-container {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.calendar.fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.calendar.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.calendar-day {
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-day:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.special-day {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.day-number {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.day-emoji {
+    font-size: 1.2rem;
+    position: absolute;
+    bottom: 0.2rem;
+}
+
+.special-day:hover .day-emoji {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.memories-preview {
+    margin-top: 3rem;
+}
+
+.memory-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-emoji {
+    font-size: 2.5rem;
+}
+
+.modal-body {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.modal.show {
+    display: block;
+}
+
+/* 月份切换按钮样式优化 */
+#prevMonth, #nextMonth {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+#prevMonth:hover, #nextMonth:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* 月份标题动画 */
+#currentMonth {
+    transition: all 0.3s ease;
+}
+
+.month-fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.month-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 音乐播放器样式 */
+.music-player {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.music-iframe {
+    width: 100%;
+    height: 66px;
+    margin-bottom: 1rem;
+}
+
+.music-info {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.music-info h3 {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.music-info p {
+    color: #666;
+    margin: 0.5rem 0 0;
+    font-size: 0.8rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-container {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #eee;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.playlist {
+    max-height: 150px;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+}
+
+.playlist-item {
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.playlist-item:hover {
+    background-color: #f5f5f5;
+    color: var(--primary-color);
+}
+
+.playlist-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.song-artist {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.playlist-item.active .song-artist {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 装饰元素样式 */
+.decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.deco {
+    position: absolute;
+    opacity: 0.6;
+    animation: float 3s ease-in-out infinite;
+}
+
+.heart {
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+}
+.heart::after {
+    content: '💗';
+}
+
+.star {
+    top: 15%;
+    right: 8%;
+    font-size: 1.8rem;
+}
+.star::after {
+    content: '⭐';
+}
+
+.cloud {
+    bottom: 20%;
+    left: 7%;
+    font-size: 2rem;
+}
+.cloud::after {
+    content: '☁️';
+}
+
+.music-note {
+    top: 30%;
+    right: 15%;
+    font-size: 1.5rem;
+}
+.music-note::after {
+    content: '🎵';
+}
+
+.cat {
+    bottom: 15%;
+    right: 10%;
+    font-size: 2rem;
+}
+.cat::after {
+    content: '🐱';
+}
+
+.flower {
+    top: 40%;
+    left: 12%;
+    font-size: 1.8rem;
+}
+.flower::after {
+    content: '🌸';
+}
+
+/* 漂浮动画 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* 为每个装饰元素设置不同的动画延迟 */
+.heart { animation-delay: 0s; }
+.star { animation-delay: 0.5s; }
+.cloud { animation-delay: 1s; }
+.music-note { animation-delay: 1.5s; }
+.cat { animation-delay: 2s; }
+.flower { animation-delay: 2.5s; }
+
+/* 鼠标悬停时的交互效果 */
+.deco:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* 为音乐播放器添加可爱的边框装饰 */
+.music-player::before {
+    content: '🎵';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    transform: rotate(-30deg);
+}
+
+.music-player::after {
+    content: '🎵';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    transform: rotate(30deg);
+}
+
+/* 为播放列表添加可爱的滚动条 */
+.playlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    border-radius: 3px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+    background: #ff7eb6;
+}
+
+.background {
+    background-image: url('../images/bg.jpg');
+} 

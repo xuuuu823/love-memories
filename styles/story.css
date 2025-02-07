@@ -1,0 +1,251 @@
+.days-counter {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.counter {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.unit {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+}
+
+.counter-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--primary-color);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.timeline-content {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 45%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 50%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 50%;
+}
+
+.timeline-date {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-emoji {
+    font-size: 1.5rem;
+}
+
+.timeline-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+.time-details {
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.counter-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.counter-header h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.heart-icon {
+    font-size: 1.8rem;
+    animation: pulse 1.5s infinite;
+}
+
+/* 让左右的爱心交错跳动 */
+.heart-icon:first-child {
+    animation-delay: 0s;
+}
+
+.heart-icon:last-child {
+    animation-delay: 0.75s;
+}
+
+.counter-message {
+    margin: 1.5rem 0;
+}
+
+.counter-message p {
+    margin: 0.5rem 0;
+}
+
+.counter-message p:first-child {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.counter-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.star-icon {
+    font-size: 1.2rem;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.sweet-message-box {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.8rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: all 0.5s ease;
+    font-family: SimSun, "宋体", serif;
+    white-space: nowrap;
+}
+
+.sweet-message-box.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+.message-content {
+    display: inline;
+}
+
+.message-text {
+    color: #ff6b95;
+    font-size: 0.95rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(255, 107, 149, 0.1);
+    letter-spacing: 1px;
+    display: inline;
+}
+
+.message-emoji {
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
+    display: inline;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+.sweet-message-box.animate {
+    animation: fadeInOut 5s ease-in-out;
+} 

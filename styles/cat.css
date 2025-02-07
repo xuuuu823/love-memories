@@ -1,0 +1,566 @@
+.cat-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cat-status {
+    margin-bottom: 2rem;
+}
+
+.cat-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.cat-mood {
+    font-size: 1.2rem;
+}
+
+.status-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-item label {
+    width: 80px;
+    color: #666;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #6b4c8c;
+    transition: width 0.3s ease;
+}
+
+.cat-display {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.cat {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.cat-body {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.cat-head {
+    position: relative;
+    width: 80px;
+    height: 70px;
+    background: #ffb6c1;
+    border-radius: 50%;
+}
+
+.cat-ears {
+    position: absolute;
+    top: -15px;
+    width: 100%;
+}
+
+.cat-ear {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #ffb6c1;
+}
+
+.cat-ear.left {
+    left: 0;
+    transform: rotate(-30deg);
+}
+
+.cat-ear.right {
+    right: 0;
+    transform: rotate(30deg);
+}
+
+.cat-face {
+    position: relative;
+    top: 20px;
+}
+
+.cat-eyes {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15px;
+}
+
+.cat-eye {
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.cat-eye::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+}
+
+.cat-nose {
+    width: 8px;
+    height: 4px;
+    background: #ff9eb5;
+    border-radius: 50%;
+    margin: 8px auto 4px;
+}
+
+.cat-mouth {
+    width: 8px;
+    height: 8px;
+    border: 2px solid #ff9eb5;
+    border-radius: 50%;
+    border-top: 0;
+    margin: 0 auto;
+}
+
+.cat-torso {
+    position: relative;
+    width: 90px;
+    height: 50px;
+    background: #ffb6c1;
+    border-radius: 50% / 70%;
+    margin-top: -10px;
+}
+
+.cat-paws {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.cat-paw {
+    width: 20px;
+    height: 10px;
+    background: #ffb6c1;
+    border-radius: 50%;
+}
+
+.cat-tail {
+    position: absolute;
+    right: -20px;
+    bottom: 20px;
+    width: 40px;
+    height: 10px;
+    background: #ffb6c1;
+    border-radius: 5px;
+    transform-origin: left center;
+    animation: tailWag 2s infinite;
+}
+
+.cat-thought {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cat-thought.show {
+    opacity: 1;
+}
+
+.thought-bubble {
+    font-size: 1.5rem;
+}
+
+.thought-text {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.cat-items {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2rem;
+}
+
+.food-bowl, .cat-bed, .cat-toy {
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+.action-group {
+    position: relative;
+}
+
+.food-menu {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.food-menu.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.food-item {
+    border: none;
+    background: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.food-item:hover {
+    background: #f0f0f0;
+}
+
+.achievements {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+}
+
+.achievement-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.achievement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: #f8f8f8;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.achievement[data-achieved="true"] {
+    opacity: 1;
+    background: #f8f0ff;
+}
+
+/* 动画效果 */
+@keyframes walk {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes eat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1) rotate(10deg); }
+}
+
+@keyframes happy {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.cat.walking {
+    animation: catWalk 2s infinite;
+}
+
+.cat.eating {
+    animation: eat 0.5s infinite;
+}
+
+.cat.happy {
+    animation: happy 0.5s infinite;
+}
+
+.cat.sleeping {
+    transform: rotate(90deg);
+    opacity: 0.8;
+}
+
+.cat.sleeping::after {
+    content: '💤';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 1.5rem;
+    animation: float 2s infinite;
+}
+
+/* 猫咪动画 */
+@keyframes tailWag {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(20deg); }
+}
+
+@keyframes blink {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); }
+}
+
+.cat.happy .cat-eye {
+    animation: blink 0.5s infinite;
+}
+
+.cat.sleeping .cat-eye {
+    height: 2px;
+    background: #ff9eb5;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+.cat.playing .cat-body {
+    animation: bounce 0.5s infinite alternate;
+}
+
+.cat.eating .cat-head {
+    animation: nom 0.5s infinite;
+}
+
+/* 互动效果 */
+.cat-body:hover .cat-tail {
+    animation: tailWag 0.5s infinite;
+}
+
+.cat-body:hover .cat-ear {
+    transform-origin: bottom center;
+    animation: earWiggle 0.5s infinite;
+}
+
+@keyframes earWiggle {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(-40deg); }
+}
+
+.cat-body:hover .cat-eye::after {
+    transform: scale(1.2);
+}
+
+.cat-house {
+    background: #fff8fa;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    min-height: 400px;
+    border: 2px solid var(--primary-color);
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.05) 0%, transparent 60%),
+        linear-gradient(to bottom, #fdf6ff 0%, #f8f0ff 100%);
+    cursor: pointer;
+}
+
+.cat-room {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.room-decor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.room-decor::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, rgba(255, 182, 193, 0.1));
+}
+
+.cat-room:hover .room-decor::before {
+    height: 80px;
+    transition: height 0.3s ease;
+}
+
+@keyframes catWalk {
+    0% { transform: translate(-50%, -50%) translateX(-50px); }
+    50% { transform: translate(-50%, -50%) translateX(50px); }
+    100% { transform: translate(-50%, -50%) translateX(-50px); }
+}
+
+.pixel-cat {
+    width: 32px;
+    height: 32px;
+    transform: scale(3);
+    image-rendering: pixelated;
+    background: url('/images/black-cat-sprite.png') no-repeat;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+/* 猫咪各种状态的动画 */
+.pixel-cat.idle {
+    background-position: 0 0;
+    animation: catIdle 0.8s steps(4) infinite;
+}
+
+.pixel-cat.walking {
+    background-position: 0 -32px;
+    animation: catWalk 0.6s steps(6) infinite;
+}
+
+.pixel-cat.sleeping {
+    background-position: 0 -64px;
+    animation: catSleep 2s steps(2) infinite;
+}
+
+.pixel-cat.playing {
+    background-position: 0 -96px;
+    animation: catPlay 0.4s steps(4) infinite;
+}
+
+.pixel-cat.eating {
+    background-position: 0 -128px;
+    animation: catEat 0.5s steps(3) infinite;
+}
+
+.cat-sprite {
+    width: 32px;
+    height: 32px;
+    background: url('/images/black-cat-sprite.png') no-repeat;
+    image-rendering: pixelated;
+    transform: scale(3);
+}
+
+.pixel-cat.idle .cat-sprite {
+    animation: catIdle 0.8s steps(4) infinite;
+}
+
+.pixel-cat.walking .cat-sprite {
+    animation: catWalk 0.6s steps(6) infinite;
+}
+
+.pixel-cat.sleeping .cat-sprite {
+    background-position-y: -32px;
+}
+
+.pixel-cat.playing .cat-sprite {
+    animation: catPlay 0.4s steps(4) infinite;
+    background-position-y: -64px;
+}
+
+.pixel-cat.eating .cat-sprite {
+    animation: catEat 0.5s steps(3) infinite;
+    background-position-y: -96px;
+}
+
+@keyframes catIdle {
+    from { background-position-x: 0; }
+    to { background-position-x: -128px; }
+}
+
+@keyframes catWalk {
+    from { background-position-x: 0; }
+    to { background-position-x: -192px; }
+}
+
+@keyframes catPlay {
+    from { background-position-x: 0; }
+    to { background-position-x: -128px; }
+}
+
+@keyframes catEat {
+    from { background-position-x: 0; }
+    to { background-position-x: -96px; }
+}
+
+/* 让猫咪可以在房间里走动 */
+.cat:hover {
+    transform: scale(1.1);
+}
+
+.item-zone {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.item-zone:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+/* 修改库洛米的表情状态 */
+.cat-mood span {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* 修改按钮悬停颜色 */
+.action-btn:hover {
+    background: #6b4c8c;
+    color: white;
+} 

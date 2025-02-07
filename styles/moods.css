@@ -1,0 +1,182 @@
+.mood-calendar {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.mood-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.mood-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mood-emoji {
+    font-size: 1.2rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background: #f8f8f8;
+}
+
+.calendar-day.has-mood {
+    background: #fff5f8;
+}
+
+.day-number {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.mood-display {
+    display: flex;
+    gap: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+.mood-display .user-mood {
+    font-size: 1rem;
+    position: relative;
+}
+
+.mood-display .user-mood::after {
+    content: attr(data-user);
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: #666;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.mood-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.mood-btn {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mood-btn:hover {
+    background: #f0f0f0;
+}
+
+.mood-btn.selected {
+    border-color: var(--primary-color);
+}
+
+.mood-note {
+    margin: 1rem 0;
+}
+
+.mood-note textarea {
+    width: 100%;
+    height: 100px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    resize: none;
+}
+
+.save-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.save-btn:hover {
+    opacity: 0.9;
+}
+
+.mood-background {
+    background-image: url('../images/mood-bg.jpg');
+} 
