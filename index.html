@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你那里，今天也是晴天吗？</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item active">主页</a>
+            <a href="story.html" class="nav-item">我们的故事</a>
+            <a href="special-days.html" class="nav-item">特殊日子</a>
+            <a href="messages.html" class="nav-item">留言板</a>
+            <a href="wishes.html" class="nav-item">许愿池</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 装饰元素 -->
+        <div class="decorations">
+            <div class="deco heart"></div>
+            <div class="deco star"></div>
+            <div class="deco cloud"></div>
+            <div class="deco music-note"></div>
+            <div class="deco cat"></div>
+            <div class="deco flower"></div>
+        </div>
+
+        <div class="welcome-section">
+            <h1>在这里，我们一起回忆我们的每一个特别时刻。</h1>
+        </div>
+
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <h2 id="currentMonth">2024年3月</h2>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="calendar" id="calendar"></div>
+        </div>
+
+        <!-- 音乐播放器 -->
+        <div class="music-player">
+            <div id="aplayer"></div>
+            <div class="playlist">
+                <div class="playlist-item" data-song="下雨天">下雨天</div>
+                <div class="playlist-item" data-song="太聪明">太聪明</div>
+                <div class="playlist-item" data-song="特别的人">特别的人</div>
+                <div class="playlist-item" data-song="天天">天天</div>
+                <div class="playlist-item" data-song="几分之几">几分之几</div>
+            </div>
+        </div>
+
+        <!-- 特殊日期详情弹窗 -->
+        <div class="modal" id="dayDetailsModal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="modal-header">
+                    <h2 id="modalTitle"></h2>
+                    <span id="modalEmoji" class="modal-emoji"></span>
+                </div>
+                <div class="modal-body">
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/player.js"></script>
+</body>
+</html> 

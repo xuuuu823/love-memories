@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和我说说话吧</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/messages.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">主页</a>
+            <a href="story.html" class="nav-item">我们的故事</a>
+            <a href="special-days.html" class="nav-item">特殊日子</a>
+            <a href="messages.html" class="nav-item active">留言板</a>
+            <a href="wishes.html" class="nav-item">许愿池</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="chat-container">
+            <div class="chat-header">
+                <span class="avatar">🐰</span>
+                <h2>小张</h2>
+                <span class="status">在线</span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- 消息会动态加载 -->
+            </div>
+
+            <div class="chat-input">
+                <form id="messageForm" class="message-form">
+                    <input type="text" id="messageInput" placeholder="说点什么吧..." autocomplete="off">
+                    <button type="submit">发送</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/messages.js"></script>
+</body>
+</html> 

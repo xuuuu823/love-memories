@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的心情日记</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/moods.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">主页</a>
+            <a href="story.html" class="nav-item">我们的故事</a>
+            <a href="special-days.html" class="nav-item">特殊日子</a>
+            <a href="messages.html" class="nav-item">留言板</a>
+            <a href="moods.html" class="nav-item active">心情日记</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="mood-calendar">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <h2 id="currentMonth">2024年3月</h2>
+                <button id="nextMonth">&gt;</button>
+            </div>
+
+            <div class="mood-legend">
+                <div class="mood-item">
+                    <span class="mood-emoji">🥰</span>
+                    <span>超开心</span>
+                </div>
+                <div class="mood-item">
+                    <span class="mood-emoji">😊</span>
+                    <span>开心</span>
+                </div>
+                <div class="mood-item">
+                    <span class="mood-emoji">😌</span>
+                    <span>平静</span>
+                </div>
+                <div class="mood-item">
+                    <span class="mood-emoji">😔</span>
+                    <span>有点闷</span>
+                </div>
+                <div class="mood-item">
+                    <span class="mood-emoji">😠</span>
+                    <span>生气</span>
+                </div>
+            </div>
+
+            <div class="calendar-grid" id="moodCalendar">
+                <!-- 日历内容会通过 JavaScript 动态生成 -->
+            </div>
+        </div>
+
+        <!-- 添加心情的弹窗 -->
+        <div class="modal" id="addMoodModal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3>今天的心情是？</h3>
+                <div class="mood-selector">
+                    <button class="mood-btn" data-mood="🥰">🥰</button>
+                    <button class="mood-btn" data-mood="😊">😊</button>
+                    <button class="mood-btn" data-mood="😌">😌</button>
+                    <button class="mood-btn" data-mood="😔">😔</button>
+                    <button class="mood-btn" data-mood="😠">😠</button>
+                </div>
+                <div class="mood-note">
+                    <textarea id="moodNote" placeholder="想说点什么..."></textarea>
+                </div>
+                <button id="saveMood" class="save-btn">记录下来</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/moods.js"></script>
+</body>
+</html> 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>许愿池</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/wishes.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">主页</a>
+            <a href="story.html" class="nav-item">我们的故事</a>
+            <a href="special-days.html" class="nav-item">特殊日子</a>
+            <a href="messages.html" class="nav-item">留言板</a>
+            <a href="wishes.html" class="nav-item active">许愿池</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="wish-pool">
+            <h1>✨ 许愿池 ✨</h1>
+            <div class="pool-container">
+                <div class="ripple-effect"></div>
+                <div class="wishes-container">
+                    <!-- 愿望会在这里显示 -->
+                </div>
+                <button class="make-wish-btn">许下新愿望</button>
+            </div>
+        </div>
+
+        <!-- 许愿表单弹窗 -->
+        <div class="modal" id="wishModal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>许下你的愿望</h2>
+                <form id="wishForm">
+                    <div class="form-group">
+                        <label for="wishTitle">愿望标题</label>
+                        <input type="text" id="wishTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wishDescription">愿望描述</label>
+                        <textarea id="wishDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="wishDate">许愿日期</label>
+                        <input type="date" id="wishDate" required>
+                    </div>
+                    <button type="submit" class="submit-wish">投入许愿池</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 愿望详情弹窗 -->
+        <div class="modal" id="wishDetailsModal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="wish-details">
+                    <h2 id="modalWishTitle"></h2>
+                    <p id="modalWishDate"></p>
+                    <p id="modalWishDescription"></p>
+                    <div class="wish-status">
+                        <label>
+                            <input type="checkbox" id="wishCompleted">
+                            愿望已实现
+                        </label>
+                        <span class="completion-date"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/wishes.js"></script>
+</body>
+</html> 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的故事 - 时间线</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/story.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">主页</a>
+            <a href="story.html" class="nav-item active">我们的故事</a>
+            <a href="special-days.html" class="nav-item">特殊日子</a>
+            <a href="messages.html" class="nav-item">留言板</a>
+            <a href="wishes.html" class="nav-item">许愿池</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="days-counter">
+            <div class="counter-header">
+                <span class="heart-icon">💖</span>
+                <h2>我们的故事 💕</h2>
+                <span class="heart-icon">💝</span>
+            </div>
+            <h2>我们已经认识了</h2>
+            <div class="counter">
+                <span id="daysCount">0</span>
+                <span class="unit">天</span>
+            </div>
+            <div class="counter-message">
+                <p>每一天都很特别</p>
+                <p class="counter-description">从2024年9月30日开始</p>
+                <p class="time-details"></p>
+            </div>
+            <div class="counter-footer">
+                <span class="star-icon">⭐</span>
+                <p>愿我们的故事继续书写</p>
+                <span class="star-icon">⭐</span>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <!-- 时间线内容会通过 JavaScript 动态生成 -->
+        </div>
+
+        <!-- 甜蜜消息盒子 -->
+        <div class="sweet-message-box">
+            <div class="message-content">
+                <p class="message-text"></p>
+                <div class="message-emoji"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/story.js"></script>
+</body>
+</html> 

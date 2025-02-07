@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特殊的日子</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/special-days.css">
+</head>
+<body>
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop autoplay preload="auto" muted>
+        <source src="/Users/zhangxu/网页/music/小甘版下雨天.m4a" type="audio/mp4">
+        您的浏览器不支持音频播放
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <div class="music-control">
+        <button id="musicToggle">🎵</button>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">主页</a>
+            <a href="story.html" class="nav-item">我们的故事</a>
+            <a href="special-days.html" class="nav-item active">特殊日子</a>
+            <a href="messages.html" class="nav-item">留言板</a>
+            <a href="wishes.html" class="nav-item">许愿池</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 装饰元素 -->
+        <div class="decorations">
+            <div class="star-fall">⭐</div>
+            <div class="star-fall">✨</div>
+            <div class="star-fall">🌟</div>
+            <div class="star-fall">⭐</div>
+            <div class="star-fall">✨</div>
+            <div class="star-fall">🌟</div>
+            <div class="star-fall">⭐</div>
+            <div class="star-fall">✨</div>
+            <div class="star-fall">🌟</div>
+            <div class="star-fall">⭐</div>
+            <div class="star-fall">✨</div>
+            <div class="star-fall">🌟</div>
+        </div>
+
+        <div class="special-days-header">
+            <span class="sparkle">✨</span>
+            <h1>特别的每一天</h1>
+            <span class="sparkle">✨</span>
+        </div>
+
+        <div class="timeline">
+            <!-- 时间线内容会通过 JavaScript 动态生成 -->
+        </div>
+    </main>
+
+    <script src="js/special-days.js"></script>
+</body>
+</html> 
